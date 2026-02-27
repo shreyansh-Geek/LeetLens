@@ -2,6 +2,7 @@ import Navbar from "../Components/Navbar"
 import HeroSection from "../Components/HeroSection"
 import FeaturesSection from "../Components/featuresSection"
 import PricingSection from "../Components/PricingSection"
+import ContactSection from "../Components/ContactSection"
 
 function HomePage() {
   return (
@@ -10,6 +11,7 @@ function HomePage() {
       <HeroSection />
       <FeaturesSection />
       <PricingSection />
+      <ContactSection />
     </div>
   )
 }
