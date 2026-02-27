@@ -157,3 +157,14 @@ button {
     @apply bg-background text-foreground;
     }
 }
+
+@keyframes gradientDrift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-\[gradientDrift_12s_linear_infinite\] {
+  background-size: 200% 200%;
+  animation: gradientDrift 12s linear infinite;
+}
