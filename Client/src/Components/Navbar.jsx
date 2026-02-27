@@ -7,7 +7,7 @@ export default function Navbar() {
   const [active, setActive] = useState("Home")
 
   return (
-    <header className="w-full flex justify-center pt-6">
+    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center px-4">
       <nav className="flex items-center justify-between w-[900px] bg-[#0B0B0C] text-white rounded-full px-6 py-3 shadow-lg">
         
         {/* Logo */}
