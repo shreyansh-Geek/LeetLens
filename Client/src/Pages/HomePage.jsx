@@ -1,6 +1,7 @@
 import Navbar from "../Components/Navbar"
 import HeroSection from "../Components/HeroSection"
 import FeaturesSection from "../Components/featuresSection"
+import PricingSection from "../Components/PricingSection"
 
 function HomePage() {
   return (
@@ -8,6 +9,7 @@ function HomePage() {
       <Navbar />
       <HeroSection />
       <FeaturesSection />
+      <PricingSection />
     </div>
   )
 }
