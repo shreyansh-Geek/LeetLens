@@ -4,6 +4,7 @@ import FeaturesSection from "../Components/featuresSection"
 import PricingSection from "../Components/PricingSection"
 import ContactSection from "../Components/ContactSection"
 import CTASection from "../Components/CTASection"
+import Footer from "../Components/Footer"
 
 function HomePage() {
   return (
@@ -14,6 +15,7 @@ function HomePage() {
       <PricingSection />
       <ContactSection />
       <CTASection />
+      <Footer />
     </div>
   )
 }
