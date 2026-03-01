@@ -1,6 +1,6 @@
 import Navbar from "../Components/Navbar"
 import HeroSection from "../Components/HeroSection"
-import FeaturesSection from "../Components/featuresSection"
+import FeaturesSection from "../Components/FeaturesSection"
 import PricingSection from "../Components/PricingSection"
 import ContactSection from "../Components/ContactSection"
 import CTASection from "../Components/CTASection"

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import logo from "../assets/leetLens_Logo_resized.png"
 
-const navItems = ["Home", "Generate", "My Generations", "Contact"]
+const navItems = ["Home", "Generate", "My Generations", "Community"]
 
 export default function Navbar() {
   const [active, setActive] = useState("Home")
