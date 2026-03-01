@@ -1,10 +1,22 @@
-import React from 'react'
-import HomePage from './Pages/HomePage'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import MainLayout from "./Layout/MainLayout"
+import HomePage from "./Pages/HomePage"
+import GeneratePage from "./Pages/GeneratePage"
+import MyGenerations from "./Pages/MyGenerationsPage"
+import CommunityPage from "./Pages/CommunityPage"
+
 function App() {
   return (
-    <div>
-      <HomePage />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/generate" element={<GeneratePage />} />
+          <Route path="/my-generations" element={<MyGenerations />} />
+          <Route path="/community" element={<CommunityPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

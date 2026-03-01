@@ -1,10 +1,14 @@
-import { useState } from "react"
 import logo from "../assets/leetLens_Logo_resized.png"
+import { NavLink } from "react-router-dom"
 
-const navItems = ["Home", "Generate", "My Generations", "Community"]
+const navItems = [
+  { name: "Home", path: "/" },
+  { name: "Generate", path: "/generate" },
+  { name: "My Generations", path: "/my-generations" },
+  { name: "Community", path: "/community" },
+]
 
 export default function Navbar() {
-  const [active, setActive] = useState("Home")
 
   return (
     <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center px-4">
@@ -25,17 +29,19 @@ export default function Navbar() {
         {/* Center Links */}
         <div className="flex items-center gap-2 bg-[#111112] rounded-full p-1">
           {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() => setActive(item)}
-              className={`px-4 py-1.5 text-sm rounded-full transition-all duration-200 ${
-                active === item
-                  ? "bg-[#1C1C1E] text-pink-400"
-                  : "text-gray-400 hover:text-white hover:bg-[#1A1A1C]"
-              }`}
+            <NavLink
+              key={item.name}
+              to={item.path}
+              className={({ isActive }) =>
+                `px-4 py-1.5 text-sm rounded-full transition-all duration-200 ${
+                  isActive
+                    ? "bg-[#1C1C1E] text-pink-400"
+                    : "text-gray-400 hover:text-white hover:bg-[#1A1A1C]"
+                }`
+              }
             >
-              {item}
-            </button>
+              {item.name}
+            </NavLink>
           ))}
         </div>
 

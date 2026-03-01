@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="relative w-full bg-black pt-20 pb-80 overflow-hidden">
 
       {/* top divider */}
-      <div className="absolute top-0 left-0 w-full h-px bg-white/10" />
+      <div className="absolute top-0 left-0 w-full h-px bg-white/20" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
@@ -40,9 +40,9 @@ export default function Footer() {
     pointer-events-none
     absolute
     left-1/2
-    bottom-[-20px]
+    bottom-0
     -translate-x-1/2
-    text-[220px] md:text-[320px]
+    text-[210px] md:text-[310px]
     font-semibold
     tracking-tight
     leading-none
@@ -54,7 +54,7 @@ export default function Footer() {
     className="
       bg-gradient-to-b
       from-white/[0.02]
-      via-white/[0.05]
+      via-white/[0.12]
       to-white/[0.22]
       bg-clip-text
       text-transparent

@@ -9,13 +9,11 @@ import Footer from "../Components/Footer"
 function HomePage() {
   return (
     <div className="min-h-screen bg-black">
-      <Navbar />
       <HeroSection />
       <FeaturesSection />
       <PricingSection />
       <ContactSection />
       <CTASection />
-      <Footer />
     </div>
   )
 }
