@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Sparkles, Square, Image, PenTool, Cpu } from "lucide-react";
 
+import AmbientBackground from "@/components/ui/AmbientBackground";
 import RecreateCTA from "@/components/generate/RecreateCTA";
 import TitleInput from "@/components/generate/TitleInput";
 import AspectSelector from "@/components/generate/AspectSelector";
@@ -95,7 +96,8 @@ export default function GeneratePage() {
 
   // ---------- UI ----------
   return (
-    <div className="min-h-screen pt-28 pb-16 px-6 text-white">
+    <div className="relative min-h-screen pt-28 pb-16 px-6 text-white overflow-hidden">
+  <AmbientBackground />
       <RecreateCTA />
       {/* HEADER */}
       <div className="max-w-6xl mx-auto mb-6">
