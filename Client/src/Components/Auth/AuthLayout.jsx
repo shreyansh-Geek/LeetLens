@@ -1,6 +1,9 @@
+import AmbientBackground from "../ui/AmbientBackground"
 export default function AuthLayout({ children }) {
   return (
-    <div className="min-h-screen bg-[#070708] text-white flex items-center justify-center px-6 mt-16">
+        <div className="relative min-h-screen pb-16 px-6 text-white overflow-hidden">
+      <AmbientBackground />
+    <div className="min-h-screen  text-white flex items-center justify-center px-6 mt-16">
       
       {/* CENTERED CONTAINER */}
       <div className="w-full max-w-[1100px] flex rounded-2xl overflow-hidden border border-white/7 bg-[#0B0B0C]">
@@ -39,6 +42,7 @@ export default function AuthLayout({ children }) {
         </div>
 
       </div>
+    </div>
     </div>
   )
 }
