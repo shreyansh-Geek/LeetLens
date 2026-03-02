@@ -1,6 +1,6 @@
 import logo from "../assets/leetLens_Logo_resized.png";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { isLoggedIn, getUser, logout, resolveNavPath } from "@/lib/auth";
 import { User, LogOut, Coins } from "lucide-react";
 
@@ -15,7 +15,9 @@ export default function Navbar() {
   const navigate = useNavigate();
   const logged = isLoggedIn();
   const user = getUser();
+
   const [open, setOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   function handleGetStarted() {
     navigate("/signup");
@@ -26,6 +28,23 @@ export default function Navbar() {
     navigate("/");
     setOpen(false);
   }
+
+  // ✅ CLOSE ON OUTSIDE CLICK
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    }
+
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
 
   return (
     <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center px-4">
@@ -68,7 +87,7 @@ export default function Navbar() {
             Get Started
           </button>
         ) : (
-          <div className="relative">
+          <div className="relative" ref={dropdownRef}>
             {/* Avatar */}
             <button
               onClick={() => setOpen((v) => !v)}
