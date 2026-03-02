@@ -107,7 +107,6 @@ function GenerationCard({ item, setItems }) {
     <div
       className="
         group
-        bg-[#0B0B0C]
         border border-white/5
         rounded-2xl
         overflow-hidden
@@ -125,7 +124,7 @@ function GenerationCard({ item, setItems }) {
         />
 
         {/* glow frame */}
-        <div className="absolute inset-0 border border-pink-400/40 rounded-t-2xl pointer-events-none opacity-60 group-hover:opacity-100 transition" />
+        <div className="absolute inset-0 border border-pink-400/40 rounded-t-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition" />
 
         {/* ACTION BAR */}
         <div

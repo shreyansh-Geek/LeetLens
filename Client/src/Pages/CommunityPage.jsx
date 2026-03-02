@@ -113,7 +113,6 @@ function CommunityCard({ item }) {
     <div
       className="
         group
-        bg-[#0B0B0C]
         border border-white/5
         rounded-2xl
         overflow-hidden
@@ -142,7 +141,7 @@ function CommunityCard({ item }) {
           className="
             absolute bottom-3 left-3
             px-3 py-1 rounded-full
-            bg-pink-500/80 backdrop-blur
+            bg-pink-500/10 backdrop-blur
             text-xs text-white
             opacity-0 group-hover:opacity-100
             transition
@@ -184,7 +183,7 @@ function CommunityCard({ item }) {
           {item.tags.map((t, i) => (
             <span
               key={i}
-              className="text-[11px] px-2 py-1 rounded-md bg-white/5 text-gray-400"
+              className="text-[11px] px-2 py-1 rounded-md bg-white/5 text-gray-400 border border-white/5"
             >
               {t}
             </span>
@@ -211,7 +210,7 @@ function IconButton({ children, onClick }) {
         bg-black/60 backdrop-blur
         border border-white/10
         text-gray-200
-        hover:border-pink-400/40
+        hover:border-white/20
         hover:text-white
         transition
       "
