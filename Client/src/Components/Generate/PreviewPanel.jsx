@@ -6,7 +6,7 @@ export default function PreviewPanel({ aspectMap, aspect }) {
       <h3 className="text-sm text-gray-400 mb-4">Preview</h3>
 
       <div
-        className="w-full max-w-lg mx-auto rounded-xl border border-dashed border-white/10 flex flex-col items-center justify-center text-center transition-all duration-300"
+        className="w-full max-w-lg mx-auto rounded-xl border border-dashed border-white/20 flex flex-col items-center justify-center text-center transition-all duration-300"
         style={{ aspectRatio: aspectMap[aspect] }}
       >
         <div className="w-14 h-14 rounded-full bg-[#0F0F11] flex items-center justify-center mb-4">
