@@ -1,7 +1,7 @@
 import logo from "../assets/leetLens_Logo_resized.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { isLoggedIn, getUser, logout } from "@/lib/auth";
+import { isLoggedIn, getUser, logout, resolveNavPath } from "@/lib/auth";
 import { User, LogOut, Coins } from "lucide-react";
 
 const navItems = [
@@ -45,7 +45,7 @@ export default function Navbar() {
           {navItems.map((item) => (
             <NavLink
               key={item.name}
-              to={item.path}
+              to={resolveNavPath(item.path)}
               className={({ isActive }) =>
                 `px-4 py-1.5 text-sm rounded-full transition-all duration-200 ${
                   isActive

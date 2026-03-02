@@ -14,3 +14,17 @@ export function getUser() {
 export function logout() {
   localStorage.removeItem("leetlens_user");
 }
+
+export function resolveNavPath(path) {
+  const logged = isLoggedIn();
+
+  if (path === "/generate") {
+    return logged ? "/generate" : "/signup";
+  }
+
+  if (path === "/my-generations") {
+    return logged ? "/my-generations" : "/login";
+  }
+
+  return path;
+}
