@@ -1,10 +1,22 @@
+import { useState } from "react";
+
 export default function CardImage({ src, alt, children }) {
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <div className="relative aspect-video overflow-hidden">
+      {/* IMAGE */}
       <img
         src={src}
         alt={alt}
-        className="w-full h-full object-cover transition duration-500 group-hover:scale-[1.03]"
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        className={`
+          w-full h-full object-cover
+          transition-all duration-700
+          group-hover:scale-[1.03]
+          ${loaded ? "opacity-100 blur-0" : "opacity-0 blur-sm"}
+        `}
       />
 
       {/* hover overlay */}
