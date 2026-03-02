@@ -2,7 +2,8 @@ import logo from "../assets/leetLens_Logo_resized.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import { isLoggedIn, getUser, logout, resolveNavPath } from "@/lib/auth";
-import { User, LogOut, Coins } from "lucide-react";
+import { LogOut, Coins } from "lucide-react";
+import Avatar from "boring-avatars";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -29,7 +30,7 @@ export default function Navbar() {
     setOpen(false);
   }
 
-  // ✅ CLOSE ON OUTSIDE CLICK
+  // CLOSE ON OUTSIDE CLICK
   useEffect(() => {
     function handleClickOutside(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -88,12 +89,23 @@ export default function Navbar() {
           </button>
         ) : (
           <div className="relative" ref={dropdownRef}>
-            {/* Avatar */}
+            {/* Gradient Avatar */}
             <button
               onClick={() => setOpen((v) => !v)}
-              className="w-10 h-10 rounded-full bg-pink-500/20 border border-pink-400/40 flex items-center justify-center hover:bg-pink-500/30 transition"
+              className="
+                w-10 h-10 rounded-full overflow-hidden
+                border border-white/10
+                hover:shadow-[0_0_12px_rgba(236,72,153,0.35)]
+                hover:scale-105
+                transition
+              "
             >
-              <User size={18} />
+              <Avatar
+                size={40}
+                name={user?.email || user?.name || "user"}
+                variant="beam"
+                colors={["#ec4899", "#f472b6", "#a855f7", "#6366f1", "#22d3ee"]}
+              />
             </button>
 
             {/* Dropdown */}
