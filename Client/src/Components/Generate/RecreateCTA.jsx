@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function RecreateCTA() {
   return (
     <section className="w-full px-6 mt-6 mb-8">
@@ -36,7 +38,8 @@ export default function RecreateCTA() {
         </div>
 
         {/* CTA */}
-        <button
+        <Link
+          to="/recreate"
           className="
             relative z-10
             px-7 py-2.5 rounded-full
@@ -53,12 +56,9 @@ export default function RecreateCTA() {
             viewBox="0 0 24 24"
             className="opacity-80"
           >
-            <path
-              fill="currentColor"
-              d="M5 12h14M13 5l7 7-7 7"
-            />
+            <path fill="currentColor" d="M5 12h14M13 5l7 7-7 7" />
           </svg>
-        </button>
+        </Link>
       </div>
     </section>
   );
