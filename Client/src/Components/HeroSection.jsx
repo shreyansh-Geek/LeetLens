@@ -1,10 +1,21 @@
-import { Vortex } from "@/components/ui/vortex"
-import  HeroBadge  from "./HeroBadge"
+import { useNavigate } from "react-router-dom";
+import { Vortex } from "@/components/ui/vortex";
+import HeroBadge from "./HeroBadge";
+import { getAuthRedirect } from "@/lib/auth";
 
 export default function HeroSection() {
+  const navigate = useNavigate();
+
+  function handleGetStarted() {
+    navigate(getAuthRedirect());
+  }
+
+  function handleViewCreations() {
+    navigate("/community");
+  }
+
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      {/* Vortex background */}
       <Vortex
         baseHue={210}
         particleCount={800}
@@ -13,11 +24,8 @@ export default function HeroSection() {
         className="relative z-10 flex flex-col items-center justify-center text-center px-6 h-full"
       >
         <div className="max-w-3xl flex flex-col items-center">
-          
-          {/* Badge */}
           <HeroBadge />
 
-          {/* Title */}
           <h1 className="mt-0 text-5xl md:text-6xl font-bold text-white leading-tight">
             Create Thumbnails That Demand{" "}
             <span className="relative inline-block px-4 py-1 ml-2">
@@ -26,25 +34,28 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          {/* Subtext */}
           <p className="mt-6 text-gray-300 text-lg max-w-xl">
             Stop wasting hours on design. Get high-converting thumbnails in
             seconds with our advanced AI.
           </p>
 
-          {/* CTAs */}
           <div className="mt-10 flex gap-4 justify-center">
-            <button className="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
+            <button
+              onClick={handleGetStarted}
+              className="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition"
+            >
               Generate now
             </button>
 
-            <button className="border border-white/30 text-white px-6 py-3 rounded-full font-medium hover:bg-white/10 transition">
+            <button
+              onClick={handleViewCreations}
+              className="border border-white/30 text-white px-6 py-3 rounded-full font-medium hover:bg-white/10 transition"
+            >
               View Creations
             </button>
           </div>
-
         </div>
       </Vortex>
     </section>
-  )
+  );
 }
