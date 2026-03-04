@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -5,7 +8,6 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 
 const app = express();
-
 app.use(cors({
     origin:[process.env.FRONTEND_BASE_URL],
     methods: ['GET','POST','PUT','PATCH','DELETE'],
