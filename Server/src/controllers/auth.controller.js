@@ -27,6 +27,9 @@ export const registerUser = async (req, res) => {
       password
     });
 
+    // create session (auto login)
+    req.session.userId = user._id;
+
     // remove sensitive data before sending
     const safeUser = {
       id: user._id,
