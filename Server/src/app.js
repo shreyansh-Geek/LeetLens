@@ -45,7 +45,7 @@ app.use(
 /**
  * - Routes required
  */
-
+import authRouter from "./routes/auth.route.js";
 
 /**
  * - Use Routes
@@ -53,5 +53,6 @@ app.use(
 app.get("/", (req, res) => {
     res.send("Hello from the LeetLens server!");
 });
+app.use("/api/auth", authRouter);
 
 export default app;
