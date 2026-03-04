@@ -49,3 +49,79 @@ export const registerUser = async (req, res) => {
     });
   }
 };
+
+
+export const loginUser = async (req, res) => {
+  try {
+
+    const { email, password } = req.body;
+
+    // validation
+    if (!email || !password) {
+      return res.status(400).json({
+        message: "Email and password are required"
+      });
+    }
+
+    // find user and include password
+    const user = await userModel
+      .findOne({ email })
+      .select("+password");
+
+    if (!user) {
+      return res.status(401).json({
+        message: "Invalid email or password"
+      });
+    }
+
+    // compare password
+    const isMatch = await user.comparePassword(password);
+
+    if (!isMatch) {
+      return res.status(401).json({
+        message: "Invalid email or password"
+      });
+    }
+
+    // create session
+    req.session.userId = user._id;
+
+    const safeUser = {
+      id: user._id,
+      name: user.name,
+      email: user.email
+    };
+
+    res.status(200).json({
+      message: "Login successful",
+      user: safeUser
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Internal Server error",
+      error: error.message
+    });
+  }
+};
+
+
+export const logoutUser = (req, res) => {
+
+  req.session.destroy((err) => {
+
+    if (err) {
+      return res.status(500).json({
+        message: "Logout failed"
+      });
+    }
+
+    res.clearCookie("connect.sid");
+
+    res.json({
+      message: "Logged out successfully"
+    });
+
+  });
+
+};
