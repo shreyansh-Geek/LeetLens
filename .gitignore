@@ -1,11 +1,2 @@
 # Root ignores
 n8nAuto-commits.ps1
-
-node_modules/
-Server/node_modules/
-Client/node_modules/
-
-.env
-Server/.env
-Client/.env
-
